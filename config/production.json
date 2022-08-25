@@ -1,0 +1,18 @@
+{
+    "site": {
+        "name": "Clikiko",
+        "secret": "boohoo",
+        "url": "https://freshideafrontend.softuvo.xyz"
+    },
+    "db": {
+        "connection_string": "mongodb://localhost:27018/boohoo"
+    },
+    "mail": {
+        "admin": "manish.yadavsoftuvo@gmail.com",
+        "from": "manish.yadavsoftuvo@gmail.com",
+        "host": "smtp.gmail.com",
+        "username": "manish.yadavsoftuvo@gmail.com",
+        "password": "Softuvo@1234"
+    }
+    
+}

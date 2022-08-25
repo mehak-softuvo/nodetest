@@ -1,0 +1,32 @@
+<script type = "text/javascript" src="/js/jquery.min.js"></script>
+{{!-- <script type = "text/javascript" src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+<script type = "text/javascript" src="/js/jquery.overlayScrollbars.min.js"></script>
+<script type = "text/javascript" src="/js/adminlte.js"></script>
+<script type = "text/javascript" src="/js/jquery.toast.min.js"></script>
+<script type = "text/javascript" src="/js/nprogress.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script type="text/javascript">
+var socket = io({{{json socketUrl}}});
+$(document).ready(function(){
+    socket.emit('notification-room-join',{{{json currentUser.id}}});
+    console.log('notification room join');
+
+    socket.on('new-notification', function(data){
+        console.log(data)
+        var mCount, newMCount;
+        mCount = $('.newMsgCounter').text();
+        if(mCount != ''){
+            newMCount = parseInt(mCount) + 1;
+        } else {
+            newMCount = 1;
+        }
+        $('.newMsgCounter').attr('style','display:block;').text(newMCount);
+        console.log('new notification');
+    });
+});
+$(document).ajaxStart(function() {
+   NProgress.start();
+}).ajaxStop(function() {
+   NProgress.done();
+});
+</script>

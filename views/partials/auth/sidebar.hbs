@@ -1,0 +1,178 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link bigLogo">
+        <img src="/img/Logo2.svg" alt="Clikiko Logo" class="brand-image elevation-3">
+    </a>
+    <a href="/" class="brand-link smallLogo">
+        <img src="/img/smallLogo.png" alt="Clikiko Logo" width="22px" class="brand-image elevation-3">
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item {{#str_contains currentPath '/dashboard'}} active {{/str_contains}}">
+                    <a href="/" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon dashboardIcon" {{#str_contains currentPath '/dashboard'}} style="background-position: center center;" {{/str_contains}}></span>
+                        <p {{#if_equal currentPath '/dashboard'}} style="color:#eb5d3e;" {{/if_equal}}>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                {{#inArray currentPermissions 'user'}}
+                <li class="nav-item {{#str_contains currentPath '/user'}} active {{/str_contains}}">
+                    <a href="/user/list" class="nav-link" >
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon userManagementIcon" {{#str_contains currentPath '/user'}} style="background-position: center center;" {{/str_contains}}></span>
+                        <p {{#str_contains currentPath '/user'}} style="color:#eb5d3e;" {{/str_contains}}>
+                            User Management
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'admin'}}
+                <li class="nav-item has-treeview
+                {{#str_contains currentPath '/admin'}} active menu-open {{/str_contains}}
+                 " id="havingChildren">
+                    <a href="/admin/list" class="nav-link" rel="admin">
+                        <!-- <i class="nav-icon fas fa-copy"></i> -->
+                        <span class="nav_icon adminManagementIcon" {{#str_contains currentPath '/admin'}} style="background: url(/../img/icons/admin_iconHover.svg) top center no-repeat" {{/str_contains}}></span>
+                        <p {{#str_contains currentPath '/admin'}} style="color:#eb5d3e;" {{/str_contains}}>
+                            Admin Management
+                            <i class="fas fa-angle-right right"></i>
+                            <!-- <span class="badge badge-info right">3</span> -->
+                        </p>
+                    </a>
+                    <ul id="havingLi" class="nav nav-treeview" >
+                        <li class="nav-item">
+                            <a href="/admin/create" class="nav-link" {{#if_equal currentPath '/admin/create'}} style="color:#eb5d3e;" {{/if_equal}}>
+                                <p>Create Admin</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/role" class="nav-link" {{#if_equal currentPath '/admin/role'}} style="color:#eb5d3e;" {{/if_equal}}>
+                                <p>Create Role</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/manage/permissions" class="nav-link" {{#if_equal currentPath '/admin/manage/permissions'}} style="color:#eb5d3e;" {{/if_equal}}>
+                                <p>Manage Permissions</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'subscription'}}
+                <li class="nav-item {{#str_contains currentPath '/subscription'}} active {{/str_contains}}">
+                    <a href="/subscription/list" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon subscriptionIcon" {{#str_contains currentPath '/subscription'}} style="background-position: center center;" {{/str_contains}}></span>
+                        <p {{#str_contains currentPath '/subscription'}} style="color:#eb5d3e;" {{/str_contains}}>
+                            Subscription Management
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'transaction'}}
+                <li class="nav-item {{#str_contains currentPath '/transaction'}} active {{/str_contains}}">
+                    <a href="/transaction/list" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon transactionHistoryIcon"></span>
+                        <p {{#str_contains currentPath '/transaction'}} style="color:#eb5d3e;" {{/str_contains}}>
+                            Transaction History
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'category'}}
+                <li class="nav-item {{#str_contains currentPath '/category'}} active {{/str_contains}}">
+                    <a href="/category/list" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon categoryIcon" {{#str_contains currentPath '/category'}} style="background-position: center center;" {{/str_contains}}></span>
+                        <p {{#str_contains currentPath '/category'}} style="color:#eb5d3e;" {{/str_contains}}>
+                            Categories
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'vip'}}
+                  <li class="nav-item has-treeview
+                  {{#str_contains currentPath '/vip'}} active menu-open {{/str_contains}}
+                  ">
+                        <a href="/vip/create" class="nav-link" rel="admin">
+                            <span class="nav_icon vipLinksIcon"></span>
+                            <p {{#str_contains currentPath '/vip'}} style="color:#eb5d3e;" {{/str_contains}}>
+                                VIP Links
+                                <i class="fas fa-angle-right right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" >
+                            <li class="nav-item">
+                                <a href="/vip/create" class="nav-link" {{#if_equal currentPath '/vip/create'}} style="color:#eb5d3e;" {{/if_equal}}>
+                                    <p>Create</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/vip/manage" class="nav-link" {{#if_equal currentPath '/vip/manage'}} style="color:#eb5d3e;" {{/if_equal}}>
+                                    <p>Manage</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'faq'}}
+                  <li class="nav-item {{#str_contains currentPath '/faq'}} active {{/str_contains}}">
+                    <a href="/faq/list" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon faqIcon"></span>
+                        <p {{#str_contains currentPath '/faq'}} style="color:#eb5d3e;" {{/str_contains}}>
+                           FAQ
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'message'}}
+                <li class="nav-item {{#str_contains currentPath '/message'}} active {{/str_contains}}">
+                    <a href="/message/list" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="counter newMsgCounter" {{#if currentNotification}} style="display: block;" {{else}} style="display: none;" {{/if}}>{{currentNotification}}</span>
+                        <span class="nav_icon messageManagementIcon"></span>
+                        <p {{#str_contains currentPath '/message'}} style="color:#eb5d3e;" {{/str_contains}}>
+                            Message Management
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'informative'}}
+                <li class="nav-item {{#str_contains currentPath '/informative'}} active {{/str_contains}}">
+                    <a href="/informative/pages/list" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon informativePageIcon"></span>
+                        <p {{#str_contains currentPath '/informative'}} style="color:#eb5d3e;" {{/str_contains}}>
+                            Informative Pages
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+                {{#inArray currentPermissions 'video'}}
+                  <li class="nav-item {{#str_contains currentPath '/video'}} active {{/str_contains}}">
+                    <a href="/video/link" class="nav-link">
+                        <!-- <i class="nav-icon fas fa-th"></i> -->
+                        <span class="nav_icon youTubeIcon"></span>
+                        <p {{#str_contains currentPath '/video'}} style="color:#eb5d3e;" {{/str_contains}}>
+                           Video Link
+                        </p>
+                    </a>
+                </li>
+                {{/inArray}}
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

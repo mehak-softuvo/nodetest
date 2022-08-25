@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> login/head }}
+
+<body class="hold-transition login-page">
+    <div class="container-fluid loginContainer">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center flex-column py-4">
+                {{{ body }}}
+            </div>
+        </div>
+    </div>
+    {{> login/footer }}
+    {{{ _sections.script }}}
+</body>
+
+</html>

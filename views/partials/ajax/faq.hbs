@@ -1,0 +1,3 @@
+{{#each faqs}}
+    <a href="javascript:;" data-id="{{this.id}}" {{#eq @index 0}}class="selected"{{/eq}}><label>{{this.order}}</label> {{this.question}}</a>
+{{/each}}
